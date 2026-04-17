@@ -13,6 +13,6 @@ class Memory(Base):
 
     content = Column(Text)
 
-    embedding = Column(Vector(384))
+    embedding = Column(Vector(768))
 
     created_at = Column(DateTime(timezone=True), server_default=func.now())
