@@ -10,6 +10,9 @@ if api_key:
 MODEL_NAME = "gemini-1.5-flash"
 
 def ask_llm(db, message: str):
+    if not os.getenv("GEMINI_API_KEY"):
+        return "Error: No se ha configurado la clave API de Gemini (GEMINI_API_KEY). Por favor, agrégala al archivo .env."
+        
     memories = search_memory(db, message)
     context = "\n".join(memories)
 
